@@ -1,0 +1,6 @@
+{
+  "name": "DIVA Cat — PT. Global Warna Indonesia",
+  "description": "Aplikasi penjualan produk cat DIVA resmi dengan katalog warna interaktif dan kalkulator estimasi kebutuhan cat otomatis.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
