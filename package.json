@@ -14,9 +14,9 @@
     "android:apk": "npm run cap:sync && cd android && ./gradlew assembleDebug"
   },
   "dependencies": {
-    "@capacitor/android": "^8.6.3",
-    "@capacitor/cli": "^8.6.3",
-    "@capacitor/core": "^8.6.3",
+    "@capacitor/android": "^6.2.1",
+    "@capacitor/cli": "^6.2.1",
+    "@capacitor/core": "^6.2.1",
     "@google/genai": "^3.6.1",
     "@tailwindcss/vite": "^4.3.3",
     "@vitejs/plugin-react": "^6.1.1",
