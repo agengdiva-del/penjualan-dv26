@@ -24,17 +24,18 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Siapkan folder web (www)
-        run: |
-          mkdir -p www
-          cp -r * www/ 2>/dev/null || true
+      - name: Install dependensi proyek
+        run: npm install --legacy-peer-deps
 
-      - name: Inisialisasi Capacitor & tambah platform Android
+      - name: Build proyek web (Vite)
+        run: npm run build
+
+      - name: Pasang Capacitor & siapkan Android
         run: |
-          npm init -y
-          npm install @capacitor/core @capacitor/cli @capacitor/android
-          npx cap init "Penjualan DV26" "com.agengdiva.penjualan" --web-dir=www
+          npm install --legacy-peer-deps @capacitor/core @capacitor/cli @capacitor/android
+          npx cap init "Penjualan DV26" "com.agengdiva.penjualandv26" --web-dir=dist
           npx cap add android
+          npx cap sync android
 
       - name: Build APK Debug
         run: |
