@@ -866,7 +866,8 @@ export const Screen18AiColorMatching: React.FC<{
 
     try {
       const { base64, mimeType } = await imageUrlToBase64(rawDataUrl);
-      const res = await fetch('/api/color-match', {
+      const apiBase = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/$/, '');
+      const res = await fetch(`${apiBase}/api/color-match`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -880,6 +881,13 @@ export const Screen18AiColorMatching: React.FC<{
           })),
         }),
       });
+
+      const contentType = res.headers.get('content-type') || '';
+      if (!contentType.includes('application/json')) {
+        throw new Error(
+          'Layanan AI Color Matching memerlukan koneksi ke server backend (set VITE_API_BASE_URL saat build APK).'
+        );
+      }
 
       const data = await res.json();
       if (!res.ok) {

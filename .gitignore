@@ -6,3 +6,15 @@ coverage/
 *.log
 .env*
 !.env.example
+
+# Android / Capacitor build outputs
+android/.gradle/
+android/app/build/
+android/build/
+android/capacitor-cordova-android-plugins/src/main/libs/*.jar
+android/local.properties
+*.apk
+*.aab
+*.jks
+*.keystore
+
